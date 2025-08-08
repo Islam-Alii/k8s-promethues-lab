@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app  
+spec:
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+      - name: python-app
+        image: handsaaa/python:v1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        - containerPort: 8000
+      imagePullSecrets:
+        - name: my-regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-app
+  labels:
+    app: python-app
+spec:
+  selector:
+    app: python-app
+  ports:
+  - name: web
+    port: 5000
+    targetPort: 5000
+  - name: metrics
+    port: 8000
+    targetPort: 8000
+        
