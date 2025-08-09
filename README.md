@@ -1,6 +1,6 @@
 # Python App with Prometheus + Grafana on Local Kubernetes
 
-This guide sets up a hands-on lab to deploy a Python app that exposes Prometheus metrics, scrapes them via Prometheus, and visualizes them in Grafana — all running on a local Kubernetes cluster using `kind`.
+this guide sets up a hands-on lab to deploy a Python app that exposes Prometheus metrics, scrapes them via Prometheus, and visualizes them in Grafana — all running on a local Kubernetes cluster using `kind`.
 
 ---
 
