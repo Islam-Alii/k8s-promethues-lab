@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:perl
+        image: nginx
     resources:
       limits:
         memory: "128Mi"
