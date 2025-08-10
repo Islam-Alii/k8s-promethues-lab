@@ -63,13 +63,13 @@ spec:
             cpu: "250m"
         livenessProbe:
           httpGet: 
-            path: /healthz
+            path: /
             port: 80 
           initialDelaySeconds: 30
           periodSeconds: 10
         readinessProbe:
           httpGet: 
-            path: /ready
+            path: /
             port: 80
           initialDelaySeconds: 5
           periodSeconds: 5
