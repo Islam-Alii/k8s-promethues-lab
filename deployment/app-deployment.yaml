@@ -62,13 +62,15 @@ spec:
             memory: "64Mi"
             cpu: "250m"
         livenessProbe:
-          httpGet: /healthz
-          port: 80 
+          httpGet: 
+            path: /healthz
+            port: 80 
           initialDelaySeconds: 30
           periodSeconds: 10
         readinessProbe:
-          httpGet: /ready
-          port: 80
+          httpGet: 
+            path: /ready
+            port: 80
           initialDelaySeconds: 5
           periodSeconds: 5
   replicas: 3
