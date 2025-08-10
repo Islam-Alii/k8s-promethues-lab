@@ -14,19 +14,20 @@ spec:
       containers:
       - name: python-app
         image: handsaaa/python:v1.0
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
         - containerPort: 8000
       imagePullSecrets:
         - name: my-regcred
-      resources:
-        limits:
-          memory: "256Mi"
-          cpu: "500m"
-        requests:
-          memory: "128Mi"
-          cpu: "250m"
+      
 ---
 apiVersion: v1
 kind: Service
