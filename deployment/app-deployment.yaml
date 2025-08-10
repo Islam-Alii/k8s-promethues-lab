@@ -61,7 +61,15 @@ spec:
       requests:
         memory: "64Mi"
         cpu: "250m"
-
+    probes:
+      livenessProbe:
+        httpGet: /healthz
+        initialDelaySeconds: 30
+        periodSeconds: 10
+      readinessProbe:
+        httpGet: /ready
+        initialDelaySeconds: 5
+        periodSeconds: 5
   replicas: 3
   strategy:
     type: RollingUpdate
