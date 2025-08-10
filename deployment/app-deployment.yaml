@@ -69,11 +69,26 @@ spec:
           periodSeconds: 10
         readinessProbe:
           httpGet: 
-            path: /
+            path: /ready
             port: 80
           initialDelaySeconds: 5
           periodSeconds: 5
   replicas: 3
   strategy:
     type: RollingUpdate
-  rollingUpdate:
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  type: ClusterIP
+
